@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+            color: white;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .main-container {
+            width: 100%;
+            position: relative;
+            flex: 1;
+        }
+        #logo {
+            width: 70px;
+            height: 56px;
+            object-fit: cover;
+        }
+        .header-container {
+            width: 100%;
+           border: 2px solid whitesmoke;
+           flex: 1;
+        }
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px 20px;
+            padding: 10px 20px;
+        }
+        .list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+        .list li {
+            display: inline-block;
+        }
+        .nav-link {
+            font-family: 'Lato', sans-serif;
+            text-decoration: none;
+            color: goldenrod;
+            font-size: clamp(16px, 2.5vw, 30px);
+            margin: 10px;
+            margin-top: 0;
+            white-space: nowrap;
+        }
+        h1 {
+            color: goldenrod;
+            font-size: clamp(28px, 5vw, 50px);
+            text-align: center;
+            margin: 0;
+            font-weight: bold;
+            font-family: 'Lato', sans-serif;
+            width: 100%;
+        }
+        #hero-img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            display: block;
+        }
+        .hero-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .button1, .button2 {
+            width: 200px;
+            max-width: 100%;
+            height: 50px;
+            background-color: goldenrod;
+            border: 0;
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        h2 {
+            font-size: clamp(24px, 4vw, 40px);
+            font-family: 'Lato', sans-serif;
+            font-weight: bold;
+        }
+        #text {
+            font-size: 18px;
+            font-family: 'Lato', sans-serif;
+            text-align: justify;
+            max-width: 900px;
+        }
+        img {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .properties-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            row-gap: 30px;
+            column-gap: 50px;
+           align-items: stretch;
+           border-radius: 10px;
+           padding: 0 20px;
+        }
+        .property-card {
+            width: 300px;
+            max-width: 100%;
+            min-height: 450px;
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        #but-1, #but-2, #but-3, #but-4, #but-5, #but-6 {
+            border: 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: goldenrod;
+            padding: 10px 20px;
+            font-family: 'Lato', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        #h2-remain {
+            text-align: center;
+        }
+        .us-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            min-height: 200px;
+            align-items: stretch;
+            padding: 0 20px;
+        }
+        .us-card {
+            width: 300px;
+            max-width: 100%;
+            border: 2px solid goldenrod;
+            text-align: center;
+            border-radius: 10px;
+            padding: 15px;
+        }
+        h4 {
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: bold;
+            text-decoration: underline
+        }
+        .rating-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            min-height: 200px;
+            align-items: stretch;
+            padding: 0 20px;
+        }
+        .rating-box {
+            width: 300px;
+            max-width: 100%;
+            border: 2px solid goldenrod;
+            text-align: center;
+            border-radius: 10px;
+            padding: 15px;
+        }   
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 10px;
+            padding: 0 20px;
+        }
+        .gallery-image {
+            width: 300px;
+            max-width: 100%;
+            height: 200px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* ---- Responsive breakpoints ---- */
+        @media (max-width: 768px) {
+            #logo {
+                position: static;
+            }
+            .header {
+                flex-direction: column;
+            }
+            .hero-container {
+                align-items: center;
+            }
+            #text {
+                text-align: left;
+            }
+            .property-card, .us-card, .rating-box, .gallery-image {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-link {
+                font-size: 16px;
+                margin: 6px;
+            }
+            .button1, .button2 {
+                width: 100%;
+                max-width: 260px;
+            }
+            #text {
+                font-size: 16px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main-container">  
+        <div class="header-container">
+            <header class="header">
+                <img id="logo" src="./images/image1.jpg" alt="logo">
+                <h1>Peter's Real Estate Ltd.</h1>
+               <ul class="list">
+                 <li><a class="nav-link" href="index.html">Home</a></li>
+                 <li><a class="nav-link" href="#">Properties</a></li>
+                 <li><a class="nav-link" href="agents.html">Agents</a></li>
+                 <li><a class="nav-link" href="about.html">About</a></li>
+                 <li><a class="nav-link" href="contacts.html">Contacts</a></li>
+                 </ul>
+            </header>
+        </div>
+        <diV class="hero-container">
+         <h2 id="h2">Discover the Pinnacle of Luxury Living</h2>
+         <img id="hero-img" src="./images/img 2.jpg" alt="luxurious house">  
+         <p id="text">Explore an elite portfolio of masterfully crafted estates, ultra-modern penthouses, and exclusive architectural masterpieces. Every listing is meticulously verified and curated for the most discerning buyers.</p>
+         <div class="hero-buttons">
+            <button class="button2">Contact Agent</button>
+            <button class="button1">View Properties</button>
+         </div>
+        </diV>
+        <h2 id="h2-remain">Featured Properties</h2>
+        <div class="properties-container">
+            <div class="property-card">
+                <h3>The Obsidian Crest</h3>
+                <img src="./images/property 1.jpg" alt="The Obsidian Crest">
+                <p>Price: $14,500,000</p>
+                <P>A stunning, modernist retreat nestled within a lush, private forest setting, offering seamless indoor-outdoor living spaces, a resort-style infinity pool, and breathtaking views of the surrounding landscape.</P>
+                <button id="but-1">View Details</button>
+            </div>
+            <div class="property-card">
+                <h3>The Vertex Pavilion</h3>
+                <img src="./images/property 2.jpg" alt="The Vertex Pavilion">
+                <p>Price: $14,500,000</p>
+                <p>A premier tropical oasis situated on a secluded peninsula, featuring an overwater bungalow lounge, a private yacht dock, and a resort-style lagoon pool wrapped in lush foliage.</p>
+                <button id="but-2">View Details</button>
+            </div>
+            <div class="property-card">
+                <h3>Azure Waters Estate</h3>
+                <img src="./images/property 3.jpg" alt="Azure Waters Estate">
+                <p>Price: $9,500,000</p>
+                <p>A striking, ultra-modern architectural masterpiece carved into the hillside, featuring expansive floor-to-ceiling glass walls, an infinity edge pool, and panoramic city skyline views.</p>
+                <button id="but-3">View Details</button>
+            </div>
+            <div class="property-card">
+                <h3>Whisper Pines Lodge</h3>
+                <img src="./images/property 4.jpg" alt="Whisper Pines Lodge">
+                <p>Price: $11,500,000</p>
+                <P>A majestic Mediterranean-inspired coastal estate boasting private white-sand beach access, pristine terraced gardens, an expansive outdoor pavilion, and a 12-car subterranean gallery.</P>
+                <button id="but-4">View Details</button>
+            </div>
+            <div class="property-card">
+                <h3> The Lumina Penthouse</h3>
+                <img src="./images/property 5.jpg" alt=" The Lumina Penthouse">
+                <p>Price: $22,000,000</p>
+                <P>An exclusive, triplex glass penthouse soaring high above the financial district, complete with a private wraparound rooftop terrace, a personal wellness spa, and 360-degree urban vistas.</P>
+                <button id="but-5">View Details</button>
+            </div>
+            <div class="property-card">
+                <h3> Villa Solis</h3>
+                <img src="./images/property 6.jpg" alt=" Villa Solis">
+                <p>Price: $17,000,000</p>
+                <p> A stunning, modernist retreat nestled within a lush, private forest setting, offering seamless indoor-outdoor living spaces, a resort-style infinity pool, and breathtaking views of the surrounding landscape.</p>
+                <button id="but-6">View Details</button>
+            </div>
+        </div>
+        <h2 id="h2-remain">Why Choose Us?</h2>
+        <div class="us-container">
+            <div class="us-card">
+                <h4>Trusted Agent</h4>
+                <p>Our licensed, award-winning brokers offer decades of local market expertise to guide you through a seamless buying or selling experience.</p>
+            </div>
+            <div class="us-card">
+                <h4>Affordable Prices</h4>
+                <p>We provide competitive pricing to ensure you get the best value for your investment.</p>
+            </div>
+            <div class="us-card">
+                <h4>24/7 Support</h4>
+                <p>Our dedicated support team is available around the clock to assist you with any questions or concerns.</p>
+            </div>
+            <div class="us-card">
+                <h4>Secure Transactions</h4>
+                <p>We prioritize the security of all transactions, ensuring a safe and reliable experience for our clients.</p>
+            </div>
+        </div>
+        <h2 id="h2-remain">Testimonials</h2>
+        <div class="rating-container">
+            <div class="rating-box">
+                <h5>Customer Name: Sophia Martinez</h5>
+                <p>Review: "Working with this team was an absolute dream. They found our hillside villa in less than a week, and the entire purchasing process was completely stress-free!"</p>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+            </div>
+            <diV class="rating-box">
+                <h5>Customer Name: John Doe</h5>
+                <p>Review: "Exceptional service and knowledge. They helped us find our dream home without any hassle."</p>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+            </diV>
+            <div class="rating-box">
+                <h5>Customer Name: Jane Smith</h5>
+                <p>Review: "Professional, responsive, and truly dedicated to their clients' success."</p>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+            </div>
+        </div>
+        <h2 id="h2-remain">Image Gallery</h2>
+            <diV class="image-gallery">
+                 <img class="gallery-image" src="./images/download 1.jpg" alt="gallery image 1"/>
+                 <img class="gallery-image" src="./images/download 2.jpg" alt="gallery image 2"/>
+                 <img class="gallery-image" src="./images/download 3.jpg" alt="gallery image 3"/>
+                 <img class="gallery-image" src="./images/download 4.jpg" alt="gallery image 4"/>
+                 <img class="gallery-image" src="./images/download 5.jpg" alt="gallery image 5"/>
+                 <img class="gallery-image" src="./images/download 6.jpg" alt="gallery image 6"/>
+                 <img class="gallery-image" src="./images/download 7.jpg" alt="gallery image 7"/>
+                 <img class="gallery-image" src="./images/download 8.jpg" alt="gallery image 8"/>
+            </diV>
+            <footer>
+                <p>&copy; 2026 Peter's Estate Agency. All rights reserved.</p>
+            </footer>
+    </div> 
+</body>
+</html>
